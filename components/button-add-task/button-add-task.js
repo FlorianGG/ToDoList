@@ -4,16 +4,12 @@ import { Icon } from 'react-native-elements';
 
 import { APP_COLORS } from '../../styles/color';
 
-const ButtonAddTask = () => (
+const ButtonAddTask = ({ onPressCallback }) => (
   <ActionButton
     buttonColors={APP_COLORS.primaryAction}
     rendericon={<Icon color={APP_COLORS.primaryText} name={'add'} />}
-    onPress={() => onPress()}
+    onPress={() => onPressCallback()}
   />
 )
-
-function onPress() {
-  console.log('add')
-}
 
 export default ButtonAddTask

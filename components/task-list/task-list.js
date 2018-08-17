@@ -5,13 +5,14 @@ import { TASK } from '../../model/model';
 import { APP_COLORS } from '../../styles/color';
 import { style } from './style';
 
-const TaskList = ({ taskList, onPressCallback }) => (
+const TaskList = ({ taskList, onPressCallback, onLongPressCallback }) => (
   <List>
     {taskList.map(task => (
       <ListItem
         key={task.id}
         title={task.content}
-        onPress={() => onPressCallback(task.content)}
+        onPress={() => onPressCallback(task)}
+        onLongPress={() => onLongPressCallback(task)}
         badge={{
           element: (
             <Badge

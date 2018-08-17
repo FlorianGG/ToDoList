@@ -5,15 +5,21 @@ import Modal from 'react-native-modal';
 
 import { style } from './style';
 
-const MenuTask = () => (
+const MenuTask = ({
+  isVisible,
+  onDisapearCallback,
+  onDeleteCallback,
+  onChangeStatusCallback,
+}) => (
   <Modal
-    isVisible={true}
+    isVisible={isVisible}
     animationIn={'zoomInDown'}
     animation={'zoomOutUp'}
     animationInTiming={1000}
     animationOutTiming={1000}
     backdropTransitionInTiming={1000}
     backdropTransitionOutTiming={1000}
+    onBackdropPress={() => onDisapearCallback()}
   >
     <View style={style.modal}>
       <View style={style.textView}>
@@ -23,12 +29,12 @@ const MenuTask = () => (
         <Button
           buttonStyle={style.buttonDelete}
           title="Supprimer"
-          onPresse={() => console.log('supprimer')}
+          onPress={() => onDeleteCallback()}
         />
         <Button
           buttonStyle={style.buttonChangeStatus}
           title="Changer status"
-          onPresse={() => console.log('changer status')}
+          onPress={() => onChangeStatusCallback()}
         />
       </View>
     </View>
